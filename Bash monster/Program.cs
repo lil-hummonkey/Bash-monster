@@ -1,12 +1,14 @@
-﻿using BashMonster;
+﻿using System.Runtime.Intrinsics.Arm;
+using BashMonster;
 using Raylib_cs;    
 
-Gubbe Goobie = new();
+Raylib.InitWindow(1000,1000, "Goobie v Snoobie");
+Gubbe goobie = new Gubbe();
 Monster Snoobie = new();
-Goobie.hitBox = new Rectangle(10, 10, 20, 20);     
+goobie.hitBox = new Rectangle(10, 10, 100, 100);     
 
 
-Goobie.hp = 100;    
+goobie.hp = 100;    
 Snoobie.hp = 30;
 Snoobie.hp -= 20;
 
@@ -18,13 +20,12 @@ while (Raylib.WindowShouldClose() == false)
 
 
 
-
 Raylib.BeginDrawing();
-Console.WriteLine($"{Goobie.name} has {Goobie.hp}");
+Console.WriteLine($"{goobie.name} has {goobie.hp}");
 Console.WriteLine($"{Snoobie.name} has {Snoobie.hp}");
-Raylib.DrawRectangleRec(,Color.BLUE);
+Raylib.DrawRectangleRec(goobie.hitBox,Color.BLUE);
 Console.WriteLine("Goobie attacks");
-
+Console.ReadLine();
 
 
 Raylib.EndDrawing();
